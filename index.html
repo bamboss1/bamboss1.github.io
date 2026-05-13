@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocky的测试</title>
-    <!-- 引入代码高亮库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     
@@ -22,14 +21,12 @@
             line-height: 1.6;
         }
 
-        /* 容器样式 */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 30px auto;
             padding: 0 20px;
         }
 
-        /* 标签栏样式 */
         .tabs {
             display: flex;
             border-bottom: 1px solid #e0e0e0;
@@ -37,7 +34,6 @@
             gap: 4px;
         }
 
-        /* 标签按钮 */
         .tab-btn {
             padding: 12px 24px;
             border: none;
@@ -49,7 +45,6 @@
             border-radius: 6px 6px 0 0;
         }
 
-        /* 激活状态标签 */
         .tab-btn.active {
             background: #165DFF;
             color: white;
@@ -61,7 +56,6 @@
             color: #165DFF;
         }
 
-        /* 内容区域 */
         .tab-content {
             display: none;
             animation: fadeIn 0.3s ease;
@@ -71,7 +65,6 @@
             display: block;
         }
 
-        /* 内容通用样式 */
         .content-section {
             margin-bottom: 20px;
         }
@@ -83,11 +76,12 @@
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-size: 15px;
+            line-height: 1.7;
+            white-space: pre-line;
         }
 
-        /* 图片样式 */
         .content-img {
             max-width: 100%;
             height: auto;
@@ -96,7 +90,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        /* 代码块样式 */
         pre {
             background: #f8f9fa;
             padding: 18px;
@@ -111,7 +104,6 @@
             font-size: 14px;
         }
 
-        /* 淡入动画 */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -120,7 +112,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- 顶部标签栏 - 可自定义文字 -->
         <div class="tabs">
             <button class="tab-btn active" data-tab="tab1">网页介绍</button>
             <button class="tab-btn" data-tab="tab2">生物知识点</button>
@@ -128,7 +119,7 @@
             <button class="tab-btn" data-tab="tab4">中方知识点</button>
         </div>
 
-        <!-- 标签1内容 -->
+        <!-- 标签1 -->
         <div class="tab-content active" id="tab1">
             <div class="content-section">
                 <h2>欢迎进入我的测试界面</h2>
@@ -136,7 +127,7 @@
             </div>
         </div>
 
-        <!-- 标签2内容 - 代码语法高亮 -->
+        <!-- 标签2 生物 -->
         <div class="tab-content" id="tab2">
             <div class="content-section">
                 <h2>IGCSE Biology U10-13总结</h2>
@@ -274,102 +265,449 @@ Unit 13: Excretion and Homeostasis (排泄与稳态)
   • Type 1: Body doesn't produce enough insulin. Must be treated with insulin injections (注射胰岛素). Cannot be taken orally (a protein, would be digested).
   • Type 2: Body cells don't respond to insulin. Often linked to diet.
 • 难点/考点 (Difficulty/Exam Point): Negative feedback (负反馈) is the key concept. You must be able to describe the complete loop: Stimulus → Receptor → Coordinator → Effector → Response → Returns to normal. Must also be able to explain why insulin injections (注射) are needed for Type 1 Diabetes and why sensor monitoring (传感器监测) is better than dipsticks for managing it. (负反馈是关键概念，必须能完整描述闭环。同时需解释I型糖尿病需要注射胰岛素的原因，以及为什么传感器比试纸更优。)</p>
-                
-                <h3>JavaScript 代码</h3>
-                <pre><code class="language-javascript">
-// 标签切换功能实现
-document.addEventListener('DOMContentLoaded', function() {
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // 移除所有激活状态
-            tabs.forEach(t => t.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
-            
-            // 激活当前标签
-            tab.classList.add('active');
-            const tabId = tab.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-    
-    // 初始化代码高亮
-    hljs.highlightAll();
-});
-                </code></pre>
-
-                <h3>Python 代码</h3>
-                <pre><code class="language-python">
-# Python 示例代码
-def tab_switch(tab_id):
-    """切换标签函数"""
-    hide_all_contents()
-    activate_tab(tab_id)
-    show_content(tab_id)
-    
-def main():
-    # 初始化应用
-    init_ui()
-    bind_events()
-    
-if __name__ == "__main__":
-    main()
-                </code></pre>
             </div>
         </div>
 
-        <!-- 标签3内容 - 图片展示 -->
+        <!-- 标签3 化学（已完整填入） -->
         <div class="tab-content" id="tab3">
             <div class="content-section">
-                <h2>图片展示功能</h2>
-                <p>支持插入任意图片，自动适配屏幕大小：</p>
-                
-                <img src="https://picsum.photos/1000/500" alt="示例图片" class="content-img">
-                
-                <p>这是一张示例图片，你可以替换src为自己的图片链接或本地图片路径。</p>
-                <p>图片自带圆角和轻微阴影，视觉效果更美观，同时保持整体商务简洁风格。</p>
-                
-                <img src="https://picsum.photos/1000/300" alt="第二张示例图" class="content-img">
+                <h2>IGCSE Chemistry 知识点</h2>
+                <p>Summary of Chapters 12–16, 18–19
+---
+Chapter 12: Preparation of Salts 盐的制备
+Core Concepts 核心概念
+1. Solubility Rules 溶解性规则
+• All sodium, potassium, ammonium salts and nitrates are soluble.
+ 所有钠盐、钾盐、铵盐和硝酸盐都可溶。
+• Most chlorides are soluble, except silver chloride (AgCl) and lead(II) chloride (PbCl₂).
+ 大多数氯化物可溶，但氯化银和氯化铅除外。
+• Most sulfates are soluble, except barium sulfate (BaSO₄), lead(II) sulfate (PbSO₄), and calcium sulfate (CaSO₄).
+ 大多数硫酸盐可溶，但硫酸钡、硫酸铅和硫酸钙除外。
+• Most carbonates are insoluble, except sodium carbonate (Na₂CO₃), potassium carbonate (K₂CO₃), and ammonium carbonate ((NH₄)₂CO₃).
+ 大多数碳酸盐不溶，但碳酸钠、碳酸钾和碳酸铵除外。
+2. Preparation of Soluble Salts 可溶盐的制备
+Method A: Acid + excess metal / insoluble base / insoluble carbonate
+方法A：酸 + 过量金属/不溶碱/不溶碳酸盐 
+
+
+• Steps: Warm acid → add excess solid → filter to remove excess solid → evaporate filtrate → crystallise → dry.
+ 步骤：加热酸 → 加入过量固体 → 过滤除去过量固体 → 蒸发滤液 → 结晶 → 干燥。
+• Examples: 
+  • Magnesium + sulfuric acid: Mg(s) + H₂SO₄(aq) → MgSO₄(aq) + H₂(g)
+  • Copper(II) oxide + sulfuric acid: CuO(s) + H₂SO₄(aq) → CuSO₄(aq) + H₂O(l)
+  • Zinc carbonate + sulfuric acid: ZnCO₃(s) + H₂SO₄(aq) → ZnSO₄(aq) + H₂O(l) + CO₂(g)
+• Key point: Excess solid ensures all acid is consumed; filtration removes unreacted solid.
+ 关键点：过量固体确保酸完全反应；过滤除去未反应的固体。
+Method B: Titration (acid + alkali / soluble carbonate)
+方法B：滴定法（酸 + 碱/可溶碳酸盐） 
+• Used when both reactants are soluble (e.g., NaOH + HCl).
+ 用于两种反应物均可溶的情况。
+• Steps: Pipette alkali + indicator → add acid from burette until colour change → repeat without indicator → evaporate → crystallise.
+ 步骤：用移液管取碱液+指示剂 → 从滴定管加酸至颜色变化 → 不加指示剂重复 → 蒸发 → 结晶。
+
+• Example: NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l)
+• Apparatus: burette, pipette, conical flask.
+ 仪器：滴定管、移液管、锥形瓶。
+3. Preparation of Insoluble Salts 不溶盐的制备
+• Method: Precipitation 方法：沉淀法
+ Steps: Mix two soluble salt solutions → filter → wash residue with distilled water → dry in oven.
+ 步骤：混合两种可溶盐溶液 → 过滤 → 用蒸馏水洗涤沉淀 → 烘干。
+• Example: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)
+ Ionic equation: Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)
+ (White precipitate 白色沉淀)
+• Example: AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq)
+ Ionic equation: Ag⁺(aq) + Cl⁻(aq) → AgCl(s)
+ (White precipitate, turns grey in light 白色沉淀，见光变灰)
+4. Hydrated and Anhydrous Salts 水合盐与无水盐
+• Hydrated salt: Contains water of crystallisation, e.g., CuSO₄·5H₂O (blue), CoCl₂·6H₂O (pink), FeSO₄·6H₂O (green).
+ 水合盐含有结晶水。
+• Anhydrous salt: No water of crystallisation, e.g., CuSO₄ (white), CoCl₂ (blue).
+ 无水盐不含结晶水。
+• Heating effect: Hydrated salt → heat → anhydrous salt + water.
+ 加热水合盐得到无水盐和水。
+• Caution: Do not heat too strongly when drying, otherwise the salt may decompose or lose water of crystallisation.
+ 干燥时避免过度加热，否则盐可能分解或失去结晶水。
+Key Difficulties 难点
+• Memorising solubility rules and applying them to choose the correct method (excess solid vs. titration).
+ 记忆溶解性规则并选择正确方法（过量固体法 vs. 滴定法）。
+• Understanding why excess solid is used and how to separate the product.
+ 理解为何使用过量固体以及如何分离产物。
+• Recognising hydrated salts and the effect of heating.
+ 识别水合盐及加热的影响。
+---
+Chapter 13: The Periodic Table 元素周期表
+Core Concepts 核心概念
+1. Arrangement of the Periodic Table 周期表的排列
+• Elements are arranged in order of increasing atomic (proton) number.
+ 元素按原子序数（质子数）递增排列。
+• Groups: Vertical columns; elements in the same group have the same number of outer electrons and similar chemical properties.
+ 族：纵列；同族元素具有相同的最外层电子数和相似的化学性质。
+• Periods: Horizontal rows; elements in the same period have the same number of electron shells.
+ 周期：横行；同周期元素具有相同的电子层数。
+• Main-group elements: Groups I–VIII (excluding transition metals).
+ 主族元素：第I–VIII族（不含过渡金属）。
+2. Group I – Alkali Metals 第I族 – 碱金属
+• Physical properties: Soft, low density, low melting points, silvery appearance.
+ 物理性质：软、低密度、低熔点、银白色。
+• Trends down the group: 
+  • Melting point decreases. 熔点降低。
+  • Density generally increases (except K). 密度通常增大。 
+  • Reactivity increases. 反应性增强。
+• Reaction with water: 2M(s) + 2H₂O(l) → 2MOH(aq) + H₂(g) (M = Li, Na, K) 
+  • Lithium: fizzes slowly, no flame. 锂：缓慢冒泡，无火焰。
+  • Sodium: melts into a ball, moves rapidly, no flame. 钠：熔成小球，快速移动，无火焰。
+  • Potassium: ignites hydrogen with a lilac flame. 钾：点燃氢气，产生淡紫色火焰。
+• Storage: Stored under oil to prevent reaction with air and moisture.
+ 储存：浸在油中以防与空气和水分反应。
+3. Group VII – Halogens 第VII族 – 卤素
+• Physical properties: Diatomic molecules (F₂, Cl₂, Br₂, I₂); colour intensity increases down the group; state changes from gas (Cl₂) to liquid (Br₂) to solid (I₂) at room temperature.
+ 物理性质：双原子分子；颜色加深；室温下状态从气体到液体到固体。
+• Trends down the group: 
+  • Melting and boiling points increase. 熔沸点升高。
+  • Reactivity decreases. 反应性减弱。
+• Displacement reactions: A more reactive halogen displaces a less reactive one from its halide solution.
+ 置换反应：更活泼的卤素置换出较不活泼的卤素。 
+  • Cl₂ + 2KBr → 2KCl + Br₂ (colourless → orange)
+  • Cl₂ + 2KI → 2KCl + I₂ (colourless → yellow-brown)
+  • Br₂ + 2KI → 2KBr + I₂
+• Test for chlorine: Damp blue litmus paper turns red then bleached white.
+ 氯气检验：湿润的蓝色石蕊试纸先变红后漂白变白。
+4. Group VIII – Noble Gases 第VIII族 – 稀有气体
+• Properties: Colourless, monatomic, unreactive (full outer shell: 8 electrons, except He with 2).
+ 性质：无色、单原子、不活泼（最外层满电子）。
+• Uses: 
+  • Helium: balloons, airships (light, unreactive).
+  • Argon: filling light bulbs (inert at high temperature).
+  • Neon: advertising signs (glows when electrified).
+5. Transition Metals 过渡金属
+• General properties: Hard, strong, high density, high melting points, less reactive than Group I/II.
+ 一般性质：硬、强、高密度、高熔点、反应性低于I/II族。
+• Distinctive properties: 
+  • Form coloured compounds (e.g., CuSO₄ blue, FeSO₄ green).
+  • Act as catalysts (e.g., Fe in Haber process).
+  • Have variable oxidation states (e.g., Fe²⁺ and Fe³⁺; CrO, Cr₂O₃, CrO₃).
+  • Form more than one oxide.
+6. Trends Across a Period 周期趋势
+• Metallic character decreases from left to right. 金属性从左到右减弱。
+• Non-metallic character increases. 非金属性增强。
+• Bonding type changes: metallic → giant covalent → simple molecular.
+ 键型变化：金属键 → 巨型共价 → 简单分子。
+• Example – Period 3: Na, Mg, Al (metallic); Si (giant covalent); P, S, Cl (simple molecular); Ar (monatomic).
+
+
+Key Difficulties 难点
+• Relating group number to ionic charge (Group I → +1, Group VII → -1, etc.).
+ 将族号与离子电荷关联。
+• Understanding the trend in reactivity down Group I (increases) vs. Group VII (decreases).
+ 理解I族反应性增强而VII族减弱的趋势。
+• Remembering the distinctive properties of transition metals (coloured compounds, variable oxidation states, catalysis).
+ 记住过渡金属的特性（有色化合物、可变氧化态、催化作用）。
+---
+Chapter 14: Metallic Elements and Alloys 金属元素与合金
+Core Concepts 核心概念
+1. Physical Properties of Metals 金属的物理性质
+• Electrical conductivity: Due to delocalised (free) electrons that can move through the structure.
+ 导电性：由于离域电子可在结构中自由移动。
+• Thermal conductivity: Vibrations of metal atoms are passed through the structure.
+ 导热性：金属原子的振动传递。
+• Malleability & Ductility: Layers of metal atoms can slide over each other without breaking bonds.
+ 可塑性和延展性：金属原子层可相互滑动而不断键。
+• Sonorous: Ringing sound when struck (dense, closely packed atoms transmit vibrations).
+ 有响声：敲击时发出响亮声音。
+• High melting/boiling points: Strong metallic bonds require large energy to break.
+ 高熔沸点：强金属键需要大量能量才能破坏。
+• Hardness and density: Generally hard and dense (except Na, K which are soft).
+ 硬度和密度：通常硬而密。
+2. Reactions of Metals 金属的反应
+• With oxygen/air: 
+  • 2Mg + O₂ → 2MgO (bright white flame)
+  • 4Al + 3O₂ → 2Al₂O₃ (protective oxide layer)
+  • 3Fe + 2O₂ → Fe₃O₄ (in air) or 4Fe + 3O₂ → 2Fe₂O₃
+• With water: 
+  • Reactive metals (K, Na, Ca): 2M + 2H₂O → 2MOH + H₂ (cold water)
+  • Mg: reacts very slowly with cold water, vigorously with steam: Mg + H₂O(g) → MgO + H₂
+  • Zn, Fe: react with steam: Zn + H₂O(g) → ZnO + H₂; 3Fe + 4H₂O(g) → Fe₃O₄ + 4H₂
+• With dilute acid: 
+  • Mg + 2HCl → MgCl₂ + H₂
+  • Zn + 2HCl → ZnCl₂ + H₂
+  • Fe + 2HCl → FeCl₂ + H₂
+  • Cu, Ag, Au: no reaction.
+3. Alloys 合金
+• Definition: Mixtures of metals (or metals with non-metals) designed for specific properties.
+ 定义：金属（或金属与非金属）的混合物，具有特定性能。
+• Structure: Atoms of different sizes distort the regular lattice, making it harder for layers to slide → stronger and harder than pure metals.
+ 结构：不同大小的原子扭曲晶格，使层滑动更困难 → 比纯金属更强更硬。
+• Examples: 
+  • Brass: Cu (70%) + Zn (30%) – harder than Cu, used for musical instruments, ornaments.
+  • Bronze: Cu (90%) + Sn (10%) – harder than Cu, used for statues, bells.
+  • Mild steel: Fe (99.7%) + C (0.3%) – stronger than pure Fe, used for car bodies.
+  • Stainless steel: Fe (74%) + Cr (18%) + Ni (8%) – hard, does not rust, used for cutlery, surgical instruments.
+  • Solder: Sn (50%) + Pb (50%) – low melting point, used for electrical connections.
+• Alloys still conduct electricity because delocalised electrons are still free to move.
+ 合金仍能导电，因为离域电子仍可自由移动。
+Key Difficulties 难点
+• Explaining why alloys are harder than pure metals in terms of atomic structure.
+ 从原子结构解释合金为何比纯金属硬。
+• Linking properties of metals to their uses (e.g., Al low density for aircraft, Cu conductivity for wiring).
+ 将金属性质与用途关联。
+• Remembering the composition and properties of common alloys.
+ 记住常见合金的成分和性质。
+---
+Chapter 15: Reactivity of Metals 金属的反应性
+Core Concepts 核心概念
+1. The Reactivity Series 金属活动性顺序
+• Order (most reactive first): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au
+ 顺序（从高到低）：钾、钠、钙、镁、铝、（碳）、锌、铁、（氢）、铜、银、金
+• Reactivity refers to the ease with which a metal forms its positive ion (loses electrons).
+ 反应性指金属形成阳离子（失去电子）的难易程度。
+• Hydrogen is included for comparison; metals above H can displace H from acids/water.
+ 氢被纳入以便比较；氢以上的金属可从酸或水中置换出氢。
+2. Reactions with Water and Acids 与水及酸的反应
+• Group I metals: Violent reaction with cold water, producing hydroxide and H₂.
+• Ca: Moderate reaction with cold water.
+• Mg: Slow with cold water, vigorous with steam.
+• Al: Protective oxide layer slows reaction with acid; once removed, reacts.
+• Zn, Fe: React with steam or dilute acids.
+• Cu, Ag, Au: No reaction with water or dilute acids.
+3. Displacement Reactions 置换反应
+• Definition: A more reactive metal displaces a less reactive metal from a solution of its salt.
+ 定义：更活泼的金属从其盐溶液中置换出较不活泼的金属。
+• Example: Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)
+ Observations: blue solution fades, grey solid deposits.
+ 现象：蓝色溶液变浅，灰色固体析出。
+• Example: Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s)
+ Observations: colourless solution turns blue, silver crystals form.
+ 现象：无色溶液变蓝，银白色晶体析出。
+• Redox nature: The more reactive metal loses electrons (oxidised), the less reactive metal ions gain electrons (reduced).
+ 氧化还原本质：更活泼金属失去电子（被氧化），较不活泼金属离子得到电子（被还原）。
+• Ionic equation: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)
+4. Aluminium’s Apparent Low Reactivity 铝的表观低反应性
+• Al reacts readily with oxygen to form a thin, adherent layer of Al₂O₃.
+ 铝易与氧反应形成致密的氧化铝薄膜。
+• This layer protects the metal from further reaction with water or acid.
+ 该层保护金属不与水或酸进一步反应。
+• Once the layer is removed (e.g., by heating or scratching), Al reacts vigorously.
+ 一旦去除氧化层（如加热或刮擦），铝会剧烈反应。
+Key Difficulties 难点
+• Memorising the reactivity series (use a mnemonic).
+ 记忆活动性顺序（使用口诀）。
+• Predicting displacement reactions and writing ionic equations.
+ 预测置换反应并书写离子方程式。
+• Understanding the role of the oxide layer in aluminium’s behaviour.
+ 理解氧化层在铝反应行为中的作用。
+---
+Chapter 16: Extraction and Corrosion of Metals 金属的提取与腐蚀
+Core Concepts 核心概念
+1. Extraction Methods Based on Reactivity 基于反应性的提取方法
+• Metals below carbon in the series (Zn, Fe, Cu): extracted by reduction with carbon (heating oxide with carbon/coke).
+ 碳以下的金属：用碳还原（加热氧化物与碳/焦炭）。
+• Metals above carbon (K, Na, Ca, Mg, Al): extracted by electrolysis of molten ore.
+ 碳以上的金属：通过电解熔融矿石提取。
+• Very unreactive metals (Ag, Au): found native (uncombined) in the Earth’s crust.
+ 极不活泼金属：以游离态存在于地壳中。
+2. Extraction of Iron – Blast Furnace 铁的提取 – 高炉
+• Raw materials: hematite (Fe₂O₃), coke (C), limestone (CaCO₃), air.
+ 原料：赤铁矿、焦炭、石灰石、空气。
+• Key reactions: 
+  • C + O₂ → CO₂ (heat)
+  • CO₂ + C → 2CO
+  • Fe₂O₃ + 3CO → 2Fe + 3CO₂ (reduction)
+  • CaCO₃ → CaO + CO₂ (decomposition)
+  • CaO + SiO₂ → CaSiO₃ (slag formation – removes impurities)
+• Products: Molten iron (about 95% pure) and slag (calcium silicate).
+ 产物：熔融铁（约95%纯）和炉渣（硅酸钙）。
+3. Extraction of Aluminium – Electrolysis 铝的提取 – 电解
+• Ore: Bauxite (Al₂O₃).
+ 矿石：铝土矿。
+• Process: 
+  • Bauxite is purified to alumina (Al₂O₃).
+  • Alumina is dissolved in molten cryolite (Na₃AlF₆) to lower the melting point (~950°C).
+  • Electrolysis: 
+    • Cathode: Al³⁺ + 3e⁻ → Al(l) (reduction)
+    • Anode: 2O²⁻ → O₂ + 4e⁻ (oxidation); oxygen reacts with carbon anode to form CO₂, so anodes need regular replacement.
+• Why expensive: High electricity cost; anodes need frequent replacement.
+ 为何昂贵：高电耗；阳极需频繁更换。
+4. Corrosion of Iron – Rusting 铁的腐蚀 – 生锈
+• Rust: Hydrated iron(III) oxide, Fe₂O₃·xH₂O.
+ 铁锈：水合氧化铁。
+• Conditions required: Oxygen (air) and water.
+ 必要条件：氧气（空气）和水。
+• Accelerating factors: Salt (e.g., seawater) and acid rain.
+ 加速因素：盐和酸雨。
+5. Rust Prevention 防锈方法
+• Barrier methods: Painting, oiling/greasing, plastic coating, electroplating (with tin or chromium).
+ 屏障法：喷漆、涂油、塑料涂层、电镀。
+• Galvanising: Coating with zinc. Even if scratched, zinc corrodes preferentially (sacrificial protection) because Zn is more reactive than Fe.
+ 镀锌：即使涂层破损，锌优先腐蚀（牺牲保护）。
+• Sacrificial protection: Attaching blocks of a more reactive metal (e.g., Zn, Mg) to the iron structure; the more reactive metal corrodes instead of iron.
+ 牺牲保护：连接更活泼金属块（如锌、镁），该金属腐蚀而铁被保护。
+Key Difficulties 难点
+• Explaining why aluminium must be extracted by electrolysis while iron can be reduced by carbon.
+ 解释为何铝必须电解而铁可用碳还原。
+• Writing balanced equations for the blast furnace reactions.
+ 书写高炉反应的平衡方程式。
+• Understanding the role of cryolite and why anodes burn away.
+ 理解冰晶石的作用及阳极消耗的原因。
+• Distinguishing between barrier methods, galvanising, and sacrificial protection.
+ 区分屏障法、镀锌和牺牲保护。
+---
+Chapter 18: Introduction to Organic Chemistry 有机化学导论
+Core Concepts 核心概念
+1. Homologous Series 同系列
+• Definition: A series of organic compounds with the same functional group, same general formula, similar chemical properties, and a trend in physical properties.
+ 定义：具有相同官能团、相同通式、相似化学性质和物理性质递变的一系列有机化合物。
+• Examples: 
+  • Alkanes: CₙH₂ₙ₊₂ (e.g., CH₄, C₂H₆)
+  • Alkenes: CₙH₂ₙ (e.g., C₂H₄, C₃H₆)
+  • Alcohols: CₙH₂ₙ₊₁OH (e.g., CH₃OH, C₂H₅OH)
+  • Carboxylic acids: CₙH₂ₙ₊₁COOH (e.g., HCOOH, CH₃COOH)
+2. Functional Groups 官能团
+• Alkane: C–C single bond (saturated)
+• Alkene: C=C double bond (unsaturated)
+• Alcohol: –OH (hydroxyl group)
+• Carboxylic acid: –COOH (carboxyl group)
+• Ester: –COO– (ester linkage)
+3. Naming Organic Compounds 有机化合物命名
+• Prefix: Number of carbon atoms (meth- 1, eth- 2, prop- 3, but- 4, pent- 5, hex- 6)
+• Suffix: Indicates functional group (-ane, -ene, -anol, -anoic acid, -yl ... -anoate for esters)
+• Examples: 
+  • C₄H₁₀ → butane
+  • C₃H₆ → propene
+  • C₃H₇OH → propanol
+  • C₃H₇COOH → butanoic acid
+4. Structural Isomerism 结构异构
+• Definition: Compounds with the same molecular formula but different structural formulae.
+ 定义：分子式相同但结构式不同的化合物。
+• Example: C₄H₁₀ has two isomers: butane (straight chain) and methylpropane (branched).
+ 例：丁烷和甲基丙烷。
+• Position isomerism: Same functional group but different position (e.g., propan-1-ol vs. propan-2-ol).
+ 位置异构：官能团位置不同。
+5. Saturated vs. Unsaturated 饱和与不饱和
+• Saturated: Contains only single bonds (alkanes).
+ 饱和：只含单键。
+• Unsaturated: Contains at least one double or triple bond (alkenes).
+ 不饱和：含至少一个双键或三键。
+• Test: Add bromine water; unsaturated compounds decolourise it (orange → colourless).
+ 检验：加入溴水，不饱和化合物使其褪色。
+Key Difficulties 难点
+• Learning the naming rules and applying suffixes correctly.
+ 学习命名规则并正确使用后缀。
+• Drawing structural isomers and recognising position isomerism.
+ 画出结构异构体并识别位置异构。
+• Understanding the relationship between functional group and chemical properties.
+ 理解官能团与化学性质的关系。
+---
+Chapter 19: Reactions of Organic Compounds 有机化合物的反应
+(Based on the previously uploaded PPT “19 Reactions of Organic Compounds.pptx” and standard IGCSE syllabus)
+（基于之前上传的PPT和标准IGCSE大纲）
+Core Concepts 核心概念
+1. Reactions of Alkanes – Substitution 烷烃的反应 – 取代
+• Combustion: 
+  • Complete: CH₄ + 2O₂ → CO₂ + 2H₂O
+  • Incomplete: 2CH₄ + 3O₂ → 2CO + 4H₂O (produces toxic CO)
+• Substitution with halogens: Requires ultraviolet (UV) light.
+ 与卤素取代：需要紫外线。 
+  • CH₄ + Cl₂ →(UV) CH₃Cl + HCl
+  • Further substitution yields CH₂Cl₂, CHCl₃, CCl₄.
+2. Reactions of Alkenes – Addition 烯烃的反应 – 加成
+• Source: Catalytic cracking of long-chain alkanes (e.g., C₁₀H₂₂ → C₈H₁₀ + C₂H₄).
+ 来源：长链烷烃催化裂解。
+• Addition reactions (C=C opens): 
+  • With bromine: C₂H₄ + Br₂ → CH₂BrCH₂Br (bromine water decolourised – test for unsaturation)
+  • With hydrogen (hydrogenation): C₂H₄ + H₂ →(Ni catalyst, 150-300°C) C₂H₆ (used to harden vegetable oils)
+  • With steam (hydration): C₂H₄ + H₂O →(H₃PO₄ catalyst, 300°C, 6000 kPa) C₂H₅OH (industrial ethanol production)
+3. Chemistry of Ethanol 乙醇的化学性质
+• Manufacture – two methods: 
+Method	Fermentation	Hydration of ethene
+Starting material	Glucose (renewable)	Ethene from petroleum (non-renewable)
+Conditions	Yeast, anaerobic, ~37°C	H₃PO₄ catalyst, 300°C, 6000 kPa
+Equation	C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂	C₂H₄ + H₂O → C₂H₅OH
+Advantages	Renewable, simple equipment	Fast, high purity
+Disadvantages	Slow, needs distillation	Non-renewable, high pressure
+• Oxidation to carboxylic acid: 
+  • Reagent: acidified KMnO₄ (purple → colourless) or acidified K₂Cr₂O₇ (orange → green).
+  • C₂H₅OH + 2[O] →(KMnO₄/H⁺) CH₃COOH + H₂O
+• Combustion: C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O
+4. Carboxylic Acids and Esters 羧酸与酯
+• Carboxylic acids are weak acids: 
+  • With metal: 2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂
+  • With base: CH₃COOH + NaOH → CH₃COONa + H₂O
+  • With carbonate: 2CH₃COOH + CaCO₃ → (CH₃COO)₂Ca + H₂O + CO₂
+• Esterification: 
+  • CH₃COOH + C₂H₅OH ⇌(conc. H₂SO₄, heat) CH₃COOC₂H₅ + H₂O
+  • Product: ethyl ethanoate (fruity smell).
+  • Reversible reaction (⇌); conc. H₂SO₄ acts as catalyst and dehydrating agent.
+Key Difficulties 难点
+• Distinguishing substitution (alkanes) from addition (alkenes).
+ 区分取代（烷烃）和加成（烯烃）。
+• Remembering specific conditions for each reaction (catalyst, temperature, pressure, UV light).
+ 记住每个反应的具体条件。
+• Comparing fermentation and hydration for ethanol production.
+ 对比发酵法和水合法制乙醇。
+• Understanding that esterification is reversible and the role of concentrated H₂SO₄.
+ 理解酯化反应的可逆性及浓硫酸的作用。
+---
+Overall Common Pitfalls & Exam Focus 总体易错点与考试重点
+Common Pitfalls 常见易错点
+1. Confusing soluble and insoluble salts – always refer to solubility rules before choosing a method.
+ 混淆可溶与不溶盐 – 选择方法前先查溶解性规则。
+2. Mixing up group trends – Group I reactivity increases down; Group VII decreases.
+ 混淆族趋势 – I族反应性向下增强，VII族减弱。
+3. Forgetting the oxide layer on aluminium – it explains why Al appears less reactive.
+ 忘记铝的氧化层 – 这解释了铝为何表现不活泼。
+4. Misunderstanding alloy structure – alloys are not mixtures of separate crystals but distorted lattices.
+ 误解合金结构 – 合金不是分离晶体的混合物，而是扭曲的晶格。
+5. Writing incorrect ionic equations for displacement – include state symbols and charges.
+ 写错置换反应的离子方程式 – 需包含状态符号和电荷。
+6. Omitting conditions for organic reactions – UV for substitution, Ni for hydrogenation, H₃PO₄ for hydration.
+ 遗漏有机反应条件 – 取代需UV，氢化需Ni，水合需H₃PO₄。
+7. Confusing fermentation and hydration – one is biological, the other industrial.
+ 混淆发酵法和水合法 – 一个是生物法，一个是工业法。
+8. Forgetting that esterification is reversible – use ⇌ and mention conc. H₂SO₄ as dehydrating agent.
+ 忘记酯化反应可逆 – 使用⇌并说明浓硫酸的吸水作用。
+Exam Focus 考试重点
+• Writing balanced symbol equations for all reactions (including state symbols).
+ 书写所有反应的平衡符号方程式（含状态符号）。
+• Stating reaction conditions (catalyst, temperature, pressure, light).
+ 说明反应条件。
+• Identifying reaction types (substitution, addition, esterification, redox, precipitation).
+ 识别反应类型。
+• Comparing methods (e.g., ethanol production, salt preparation).
+ 对比不同方法。
+• Describing tests (bromine water for unsaturation, chlorine test with litmus, flame tests for Group I).
+ 描述检验方法。
+• Explaining trends in the Periodic Table and reactivity series.
+ 解释周期表和反应性顺序的趋势。
+• Applying solubility rules to choose the correct salt preparation method.
+ 应用溶解性规则选择正确的盐制备方法。
+• Understanding rust prevention mechanisms (barrier, galvanising, sacrificial).
+ 理解防锈机制。</p>
             </div>
         </div>
 
-        <!-- 标签4内容 -->
+        <!-- 标签4 -->
         <div class="tab-content" id="tab4">
             <div class="content-section">
-                <h2>自定义使用说明</h2>
-                <p>1. 修改标签名称：直接修改顶部 button 标签内的文字即可</p>
-                <p>2. 添加新标签：复制 button 标签，新增 data-tab 属性，同时新增对应内容区域</p>
-                <p>3. 编辑文字：直接修改每个 tab-content 内的文本内容</p>
-                <p>4. 插入图片：添加 img 标签，设置 src 为图片地址</p>
-                <p>5. 添加代码：使用 pre + code 标签包裹代码，自动高亮</p>
-                <br>
-                <p>本页面适配电脑、平板、手机等多种设备，响应式设计，使用流畅。</p>
+                <h2>紧急制作中</h2>
+                <p>暂无</p>
             </div>
         </div>
     </div>
 
     <script>
-        // 标签切换核心功能
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
 
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // 清除所有标签和内容的激活状态
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
-
-                    // 激活当前点击的标签和对应内容
                     button.classList.add('active');
                     const targetTab = button.getAttribute('data-tab');
                     document.getElementById(targetTab).classList.add('active');
                 });
             });
-
-            // 初始化代码高亮
             hljs.highlightAll();
         });
     </script>
