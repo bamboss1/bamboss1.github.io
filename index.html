@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>谁便整理</title>
+    <title>随便整理</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -31,11 +31,11 @@
             letter-spacing: 2px;
         }
 
-        /* 分栏网格布局：电脑3栏，平板2栏，手机1栏 */
+        /* 分栏加宽，大屏两栏，手机一栏，保证PDF够大 */
         .pdf-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+            gap: 40px;
         }
 
         .pdf-card {
@@ -54,20 +54,21 @@
         .card-head {
             background: linear-gradient(90deg, #2563eb, #4f46e5);
             color: #fff;
-            padding: 16px;
-            font-size: 18px;
+            padding: 18px;
+            font-size: 20px;
             font-weight: 600;
             text-align: center;
         }
 
+        /* PDF 高度拉到 850，超大看得清 */
         .pdf-iframe {
             width: 100%;
-            height: 520px;
+            height: 850px;
             border: none;
         }
 
         .card-foot {
-            padding: 14px;
+            padding: 16px;
             text-align: center;
             background: #f8fafc;
         }
@@ -76,33 +77,32 @@
             color: #2563eb;
             text-decoration: none;
             font-weight: 500;
+            font-size: 17px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="title">随便整理，只整理重要的地方</h1>
+        <h1 class="title">随便整理的知识点，我乱搞的，可能不全而且只有重点</h1>
 
         <div class="pdf-grid">
-            <!-- 第一栏 PDF 1 -->
+            <!-- 第一栏 PDF -->
             <div class="pdf-card">
                 <div class="card-head">指数对数与三角函数 知识点</div>
-                <iframe class="pdf-iframe" src="/pdfs/高中数学.pdf" type="application/pdf"></iframe>
+                <iframe class="pdf-iframe" src="/pdfs/math1.pdf" type="application/pdf"></iframe>
                 <div class="card-foot">
-                    <a href="/pdfs/pdf1.pdf" target="_blank">新标签页打开 / 下载PDF</a>
+                    <a href="/pdfs/pdf1.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
                 </div>
             </div>
 
-            <!-- 第二栏 PDF 2 复制这一块可以无限加栏目 -->
+            <!-- 第二栏 PDF 要多加直接复制这一块 -->
             <div class="pdf-card">
-                <div class="card-head">暂无</div>
+                <div class="card-head">语文 暂无</div>
                 <iframe class="pdf-iframe" src="" type="application/pdf"></iframe>
                 <div class="card-foot">
-                    <a href="/pdfs/pdf2.pdf" target="_blank">新标签页打开 / 下载PDF</a>
+                    <a href="/pdfs/pdf2.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
                 </div>
             </div>
-
-            <!-- 想加第三栏、第四栏，直接复制上面一个 pdf-card 整块即可 -->
 
         </div>
     </div>
