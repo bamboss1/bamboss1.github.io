@@ -18,7 +18,7 @@
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 1000px; /* 单栏更舒适的最大宽度，比原来的1600px窄一点，不会太宽 */
             margin: 0 auto;
         }
 
@@ -31,11 +31,11 @@
             letter-spacing: 2px;
         }
 
-        /* 分栏加宽，大屏两栏，手机一栏，保证PDF够大 */
+        /* 核心修改：强制单栏，去掉自动分栏逻辑 */
         .pdf-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr; /* 永远只有1列 */
+            gap: 40px; /* 保持卡片之间的上下间距 */
         }
 
         .pdf-card {
@@ -60,7 +60,7 @@
             text-align: center;
         }
 
-        /* PDF 高度拉到 850，超大看得清 */
+        /* PDF 高度保持850，超大看得清 */
         .pdf-iframe {
             width: 100%;
             height: 850px;
@@ -86,21 +86,30 @@
         <h1 class="title">随便整理的知识点 我乱搞的 可能不全 而且只有重点 感谢访问 有问题可以反馈</h1>
 
         <div class="pdf-grid">
-            <!-- 第一栏 PDF -->
+            <!-- 第一个PDF -->
             <div class="pdf-card">
-                <div class="card-head">指数对数与三角函数 知识点</div>
+                <div class="card-head">数学 指数对数与三角函数</div>
                 <iframe class="pdf-iframe" src="/PDF/math1.pdf" type="application/pdf"></iframe>
                 <div class="card-foot">
-                    <a href="/pdfs/pdf1.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
+                    <a href="/PDF/math1.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
                 </div>
             </div>
 
-            <!-- 第二栏 PDF 要多加直接复制这一块 -->
+            <!-- 第二个PDF -->
             <div class="pdf-card">
                 <div class="card-head">语文</div>
                 <iframe class="pdf-iframe" src="/PDF/Chinese.pdf" type="application/pdf"></iframe>
                 <div class="card-foot">
-                    <a href="/pdfs/pdf2.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
+                    <a href="/PDF/Chinese.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a>
+                </div>
+            </div>
+
+            <!-- 新增的第三个PDF（复制这个块继续加更多） -->
+            <div class="pdf-card">
+                <div class="card-head">物理 必修二</div> <!-- 改成你的PDF标题 -->
+                <iframe class="pdf-iframe" src="/PDF/physics.pdf" type="application/pdf"></iframe> <!-- 改成你的PDF路径 -->
+                <div class="card-foot">
+                    <a href="/PDF/physics.pdf" target="_blank">新标签页打开 / 下载PDF（可放大阅读）</a> <!-- 改成对应的下载路径 -->
                 </div>
             </div>
 
